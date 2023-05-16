@@ -1,32 +1,32 @@
-#*未完成！！！！
+#　未完成！！！！
 
-    ##　環境構築
+    ##　**環境構築**
 
         -１. ローカル環境の構築
         -WSLで以下のコマンドを実行してローカルにリポジトリをクローンしてください。
-        -'git clone git@github.com:Sea10wood/tumaguro_frontend.git'
+        -`git clone git@github.com:Sea10wood/tumaguro_frontend.git`
 
         -2.フォルダに移動
-        -'cd tumaguro_frontend.git'
+        -`cd tumaguro_frontend.git`
 
         -3.ライブラリのインストール(今回はnpmを使用します。)
-        -'npm install --save next react react-dom three @mui/material @emotion/react @emotion/styled @mui/icons-material tailwindcss @react-three/drei @react-three/fibe eslint '
+        -`npm install --save next react react-dom three @mui/material @emotion/react @emotion/styled @mui/icons-material tailwindcss @react-three/drei @react-three/fibe eslint`
 
 
         -4.ここまでインストールしたら、以下のコマンドを実行する。
-        -npm run dev
+        -`npm run dev`
         -http://localhost:3000　にアクセス
 
 
 
-    ##　ローカルで実行
-        -'npm run dev'　　　　　
+    ##　**ローカルで実行**
+        -`npm run dev`
         -**開発インスタンスをホット リロード（プログラムの変更を即座に画面に反映させる機能）、ファイル監視、タスク再実行で実行します。**
 
-        -'npm run build'
+        -`npm run build`
         -**プロジェクトをコンパイルします。（作成したフローが処理可能な手順で記述されているかどうかを確認すること）**
 
-        -'npm start'
+        -`npm start`
         -**アプリを実稼働モードで起動します。**
 
 
@@ -72,8 +72,8 @@
      ##　更新内容を統合
 
           - commit/pushを完了させる
-          - 'git commit -m <コミットメッセージ>'
-          - 'git push origin [ブランチ名]'
+          - `git commit -m <コミットメッセージ>`
+          - `git push origin [ブランチ名]`
 
 
           - **developブランチ**にプルリクエストを出す
@@ -93,32 +93,32 @@
 
   ##　Gitについて
 
-      -'git fetch origin master'
+      -`git fetch origin master`
       -リモートリポジトリの状態を、ローカルの追跡ブランチに反映させる
 
-      -'git checkout -b develop'
+      -`git checkout -b develop`
       -今いるブランチからdevelopブランチに移動する
 
-      -'git pull origin develop'
+      -`git pull origin develop`
       -ローカルリポジトリの状態を追跡ブランチであるorigin/masterにコピーしてきて,developブランチの追跡ブランチ(origin/develop)をローカルのdevelopブランチにマージしてくる
 
-      -'git pull origin develop'
+      -`git pull origin develop`
       -Featureブランチ(追加したブランチ)にMainブランチの変更がまず入り、そこにFeatureブランチの変更が加えられます。コミット(追加・変更したファイルをGitに登録すること)はそのまま使われ、また必ずマージコミット（複数の履歴の流れを合流させること）が追加されます。
 
-      -'git checkout ブランチ名'
+      -`git checkout ブランチ名`
       -ブランチの切り替え
 
-      -'git git merge origin/master'
+      -`git git merge origin/master`
       -masterブランチの追跡ブランチ(origin/master)をローカルのmasterブランチにマージする
 
-      -'git pull origin master'
+      -`git pull origin master`
       -(fetch+merge)
 
-      -'git reset --hard HEAD'
+      -`git reset --hard HEAD`
       -直前のcommitまで戻る（fetchでエラーがある時）
 
-      -'git merge --abort'
-      -'git reset --hard HEAD'
+      -`git merge --abort`
+      -`it reset --hard HEAD`
       -pullによって起きたコンフリクトを解消したい時
 
 
