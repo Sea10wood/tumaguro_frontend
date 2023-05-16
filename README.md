@@ -10,7 +10,7 @@
         -`cd tumaguro_frontend.git`
 
         -3.ライブラリのインストール(今回はnpmを使用します。)
-        -`npm install --save next react react-dom three @mui/material @emotion/react @emotion/styled @mui/icons-material tailwindcss @react-three/drei @react-three/fibe eslint`
+        -`npm i`
 
 
         -4.ここまでインストールしたら、以下のコマンドを実行する。
