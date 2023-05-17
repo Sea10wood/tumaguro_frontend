@@ -98,7 +98,7 @@
       -`git checkout ブランチ名`
       -ブランチの切り替え
 
-      -`git git merge origin/master`
+      -`git merge origin/master`
       -masterブランチの追跡ブランチ(origin/master)をローカルのmasterブランチにマージする
 
       -`git pull origin master`
