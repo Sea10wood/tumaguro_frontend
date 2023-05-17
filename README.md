@@ -111,6 +111,8 @@
       -`it reset --hard HEAD`
       -pullによって起きたコンフリクトを解消したい時
       
+      -`git push origin main`
+      
 
 
 
