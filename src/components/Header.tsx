@@ -8,15 +8,15 @@ export const Header = () => {
             sx={{
                 backgroundColor: "#fffff0",
                 width: "100%",
-                height: "13vh",
+                height: "6vh",
                 margin: "0 0",
             }}
         >
             <Image
                 src="/images/nyan.gif"
                 alt="nyan.gif"
-                height={100}
-                width={100}
+                height={45}
+                width={45}
             />
         </Box>
     );

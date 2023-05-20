@@ -2,7 +2,7 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-const DatePickerComponent = () => {
+const DatePick = () => {
     const [selectedDate, setSelectedDate] = useState<Date>();
 
     return (
@@ -18,4 +18,4 @@ const DatePickerComponent = () => {
         />
     );
 };
-export default DatePickerComponent;
+export default DatePick;

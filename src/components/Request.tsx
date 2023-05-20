@@ -55,12 +55,13 @@ export default function Request() {
                         <Image
                             src="/images/catclose.png"
                             alt="cat close.png"
+                            width={100}
+                            height={100}
                             style={{
                                 textAlign: "right",
                                 position: "absolute",
                                 right: 0,
-                                width: "15%",
-                                height: "20%",
+                                top: 0,
                             }}
                         />
 
