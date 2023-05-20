@@ -1,4 +1,5 @@
 import { Paper, TextField, Typography } from "@mui/material";
+import DatePick from "./DatePick";
 import Request from "./Request";
 
 export function TodoAdd() {
@@ -29,7 +30,7 @@ export function TodoAdd() {
                     m: "0 auto",
                 }}
             />
-            {/* <DatePick /> */}
+            <DatePick />
             <Request />
         </Paper>
     );
