@@ -1,6 +1,5 @@
 import { Box } from "@mui/material";
 import Image from "next/image";
-import nyan from "./Images/nyan.gif";
 
 export const Header = () => {
     return (
@@ -13,7 +12,12 @@ export const Header = () => {
                 margin: "0 0",
             }}
         >
-            <Image src={nyan} alt="nyan.gif" height={100} width={100} />
+            <Image
+                src="/images/nyan.gif"
+                alt="nyan.gif"
+                height={100}
+                width={100}
+            />
         </Box>
     );
 };
