@@ -13,6 +13,7 @@ import DatePick from "../components/DatePick";
 
 export default function Request() {
     const [isOpen, setIsOpen] = useState(false);
+    const [isClose, setIsClose] = useState(false);
     return (
         <div>
             <Button
@@ -55,12 +56,16 @@ export default function Request() {
                         <Image
                             src="/images/catclose.png"
                             alt="cat close.png"
+                            width={100}
+                            height={100}
                             style={{
                                 textAlign: "right",
                                 position: "absolute",
                                 right: 0,
-                                width: "15%",
-                                height: "20%",
+                                top: 0,
+                            }}
+                            onClick={() => {
+                                setIsClose(isClose);
                             }}
                         />
 
