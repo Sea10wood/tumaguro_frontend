@@ -1,11 +1,19 @@
-import { TodoAdd } from "@/components/Todoadd";
+import Cat from "@/components/Cat";
 import { ScheduleCalendar } from "@/components/schedule/ScheduleCalender";
+import { TodoAdd } from "@/components/Todoadd";
 import { Box, Stack } from "@mui/material";
-// import DataPicker from "../components/DataPicker";
+import { OrbitControls } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
 export default function Todo() {
     return (
         <Stack direction="row">
-            <Box component="div" sx={{ height: "100vh", width: "60%" }}></Box>
+            <Box component="div" sx={{ height: "100vh", width: "60%" }}>
+                <Canvas>
+                    <OrbitControls />
+                    <Cat />
+                    <directionalLight />
+                </Canvas>
+            </Box>
             <Box
                 component="div"
                 sx={{ height: "100vh", width: "40%" }}
