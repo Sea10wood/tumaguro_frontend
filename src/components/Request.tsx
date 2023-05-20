@@ -13,7 +13,6 @@ import DatePick from "../components/DatePick";
 
 export default function Request() {
     const [isOpen, setIsOpen] = useState(false);
-    const [isClose, setIsClose] = useState(false);
     return (
         <div>
             <Button
@@ -63,9 +62,6 @@ export default function Request() {
                                 position: "absolute",
                                 right: 0,
                                 top: 0,
-                            }}
-                            onClick={() => {
-                                setIsClose(isClose);
                             }}
                         />
 
