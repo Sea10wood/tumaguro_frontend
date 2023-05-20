@@ -16,7 +16,6 @@ const DatePickerComponent = () => {
             className="date-picker"
             timeIntervals={30}
         />
-        // </div>
     );
 };
 export default DatePickerComponent;
