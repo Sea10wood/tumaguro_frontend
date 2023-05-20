@@ -1,5 +1,15 @@
-import { Box, Button, Modal, Paper, TextField } from "@mui/material";
+import {
+    Box,
+    Button,
+    Modal,
+    Paper,
+    Stack,
+    TextField,
+    Typography,
+} from "@mui/material";
+import Image from "next/image";
 import { useState } from "react";
+import DatePick from "../components/DatePick";
 
 export default function Request() {
     const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +20,7 @@ export default function Request() {
                     setIsOpen(!isOpen);
                 }}
             >
-                Open modal
+                Open
             </Button>
             <Modal
                 open={isOpen}
@@ -27,37 +37,65 @@ export default function Request() {
                 <Paper
                     sx={{
                         height: "40%",
-                        width: "30%",
+                        width: "50vw",
                         minWidth: "300px",
                         margin: "auto",
+                        minHeight: "500px",
                     }}
                 >
-                    <Box
-                        component="div"
-                        sx={{ width: 400, margin: "10px auto" }}
+                    <Stack
+                        sx={{
+                            // width: 400,
+                            // margin: "10px auto",
+                            position: "relative",
+                        }}
+                        spacing={3}
                         p={2}
                     >
-                        <Button sx={{ textAlign: "right" }}>Close</Button>
-                        <h4 id="parent-modal-title">スケジュールを共有</h4>
-                        {/* <p id="parent-modal-description">
-                            送信相手、スケジュール日時の表示
-                        </p> */}
+                        <Image
+                            src="/images/catclose.png"
+                            alt="cat close.png"
+                            style={{
+                                textAlign: "right",
+                                position: "absolute",
+                                right: 0,
+                                width: "15%",
+                                height: "20%",
+                            }}
+                        />
+
+                        <h4>Todoを追加</h4>
 
                         <TextField
                             id="outlined-multiline-flexible"
-                            label="UserName"
+                            label="Todo"
                             multiline
                             maxRows={1}
                             sx={{
                                 width: "100%",
-                                maxWidth: "250px",
+                                minWidth: "200px",
+                                maxWidth: "300px",
                                 textAlign: "center",
-                                m: " auto",
+                                m: "auto",
                             }}
                         />
-                        <h4 id="parent-modal-title">開始日時を追加</h4>
-                        <h4 id="parent-modal-title">終了日時を追加</h4>
-                    </Box>
+                        <Box component="div">
+                            <Typography variant="h6">開始日時を追加</Typography>
+                            <DatePick />
+                        </Box>
+                        <Box component="div">
+                            <Typography variant="h6">終了日時を追加</Typography>
+                            <DatePick />
+                        </Box>
+                        <Button
+                            sx={{
+                                textAlign: "right",
+                                right: 0,
+                            }}
+                        >
+                            Send
+                        </Button>
+                    </Stack>
                 </Paper>
             </Modal>
         </div>
