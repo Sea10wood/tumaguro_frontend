@@ -1,5 +1,5 @@
-import { AdditiveAnimationBlendMode, GridHelper, PlaneHelper } from "three";
-import React, { useState } from "react";
+
+import React, { ChangeEvent, useState } from "react";
 import {
   Box,
   Button,
@@ -8,11 +8,42 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import { Diversity1 } from "@mui/icons-material";
-export const Login = () => {
-  const [isRevealPassword, setIsRevealPassword] = useState(false);
-  const titleClass: string = "title";
+import { SigninUser } from "../types/schema";
+import axios from "axios";
+import { useRouter } from "next/router";
+const Signin = () => {
+  const router = useRouter();
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setUserInput({ ...userInput, [event.target.name]: event.target.value });
+  };
+  const [userInput, setUserInput] = useState<SigninUser>({
+    email: "",
+    password: "",
+  });
+  const handleSubmit = () => {
+    if (userInput.email === "") {
+      return;
+    } else if (userInput.password === "") {
+      return;
+    }
+    handleSignIn();
+  };
+
+  const handleSignIn = async () => {
+    try {
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/users/signin`,
+        userInput
+      );
+    
+      if (response.status == 200) {
+        localStorage.setItem("jwt", response.data.jwt);
+        router.push("/todo");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <Box
       component="div"
@@ -31,7 +62,6 @@ export const Login = () => {
         <Typography
           color="primary"
           sx={{
-            //  color: "#03A40",
             textAlign: "center",
             fontWeight: "bold",
           }}
@@ -48,6 +78,8 @@ export const Login = () => {
               required
               id="outlined-required"
               label="メールアドレス"
+              onChange={handleChange}
+              name="email"
             />
             <TextField
               required
@@ -55,11 +87,14 @@ export const Login = () => {
               type="password"
               placeholder="必須"
               sx={{ backgroundColor: "#FFFDED" }}
+              onChange={handleChange}
+              name="password"
             />
           </Stack>
           <h2 style={{ textAlign: "center" }}>
             <Box component="div" p={2}>
               <Button
+                onClick={handleSubmit}
                 sx={{
                   width: "20%",
                 }}
@@ -74,4 +109,4 @@ export const Login = () => {
     </Box>
   );
 };
-export default Login;
+export default Signin;
