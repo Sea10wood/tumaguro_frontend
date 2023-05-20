@@ -46,7 +46,7 @@ import { CalendarContainer } from "react-datepicker";
 // }
 
 const DatePick = () => {
-    const [startDate, setStartDate] = useState(new Date());
+    const [startDate, setStartDate] = useState<Date>(new Date());
     const MyContainer = () => {
         return (
             <div
@@ -70,7 +70,7 @@ const DatePick = () => {
             <DatePicker
                 showIcon
                 selected={startDate}
-                onChange={(date) => setStartDate(date)}
+                onChange={(date: Date) => setStartDate(date)}
                 calendarContainer={MyContainer}
             />
             hoge
