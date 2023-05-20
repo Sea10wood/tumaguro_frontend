@@ -6,13 +6,6 @@ const DatePickerComponent = () => {
     const [selectedDate, setSelectedDate] = useState<Date>();
 
     return (
-        // <div
-        //     style={{
-        //         width: "100%",
-        //         height: "20%",
-        //         textAlign: "center",
-        //     }}
-        // >
         <DatePicker
             placeholderText="yyyy/MM/dd HH:mm"
             dateFormat="yyyy/MM/dd HH:mm"
