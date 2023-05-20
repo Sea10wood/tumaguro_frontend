@@ -10,7 +10,6 @@ import {
 import Image from "next/image";
 import { useState } from "react";
 import DatePick from "../components/DatePick";
-import catclose from "./images/catclose.png";
 
 export default function Request() {
     const [isOpen, setIsOpen] = useState(false);
@@ -54,7 +53,7 @@ export default function Request() {
                         p={2}
                     >
                         <Image
-                            src={catclose}
+                            src="/images/catclose.png"
                             alt="cat close.png"
                             style={{
                                 textAlign: "right",
@@ -80,11 +79,11 @@ export default function Request() {
                                 m: "auto",
                             }}
                         />
-                        <Box>
+                        <Box component="div">
                             <Typography variant="h6">開始日時を追加</Typography>
                             <DatePick />
                         </Box>
-                        <Box>
+                        <Box component="div">
                             <Typography variant="h6">終了日時を追加</Typography>
                             <DatePick />
                         </Box>
