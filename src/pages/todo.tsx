@@ -1,7 +1,7 @@
-import Cat from "@/components/Cat";
+import AddTodo from "@/components/Todo/AddTodo";
+import Cat from "@/components/Todo/Cat";
+import TodoView from "@/components/Todo/TodoView";
 import { ScheduleCalendar } from "@/components/schedule/ScheduleCalender";
-import { TodoAdd } from "@/components/Todoadd";
-import TodoView from "@/components/TodoView";
 import { Task } from "@/types/schema";
 import { Box, Stack } from "@mui/material";
 import { OrbitControls } from "@react-three/drei";
@@ -44,7 +44,7 @@ export default function Todo() {
             >
                 {/* <Image src={nyan} alt="nyan.gif" height={150} width={150} /> */}
                 <ScheduleCalendar />
-                <TodoAdd />
+                <AddTodo />
                 <TodoView />
             </Box>
         </Stack>
