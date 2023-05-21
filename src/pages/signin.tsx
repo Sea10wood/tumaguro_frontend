@@ -91,7 +91,7 @@ const Signin = () => {
               name="password"
             />
           </Stack>
-          <h2 style={{ textAlign: "center" }}>
+          <Typography style={{ textAlign: "center" }}>
             <Box component="div" p={2}>
               <Button
                 onClick={handleSubmit}
@@ -103,7 +103,7 @@ const Signin = () => {
                 送信
               </Button>
             </Box>
-          </h2>
+          </Typography>
         </Stack>
       </Paper>
     </Box>
