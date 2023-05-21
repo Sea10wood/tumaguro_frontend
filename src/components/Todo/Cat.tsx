@@ -47,7 +47,6 @@ const Cat = ({ cats }: { cats: Task[] }) => {
                     Math.random() * 30 - 15,
                 ];
                 const rotation = [0, Math.random() * Math.PI, 0];
-                console.log(position);
                 const animationName =
                     randomAnimation[Math.floor(Math.random() * 2)];
                 return (

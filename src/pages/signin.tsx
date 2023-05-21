@@ -87,9 +87,9 @@ const Signin = () => {
                     <Box component="div" p={2} alignSelf="center">
                         <CustomButton
                             onClick={handleSubmit}
-                            buttonName="送信"
-                            primaryColor="gray"
-                            secondaryColor="black"
+                            buttonname="送信"
+                            primarycolor="gray"
+                            secondarycolor="black"
                         />
                     </Box>
                 </Stack>

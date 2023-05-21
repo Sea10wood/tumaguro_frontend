@@ -3,9 +3,14 @@ import React from "react";
 import { Header } from "./Header";
 export const Layout = ({ children }: { children: React.ReactNode }) => {
     return (
-        <Stack>
+        <Stack p={0}>
             <Header />
-            <Box component="div">{children}</Box>
+            <Box
+                component="div"
+                sx={{ height: "92vh", backgroundColor: "#FFFDE2" }}
+            >
+                {children}
+            </Box>
         </Stack>
     );
 };

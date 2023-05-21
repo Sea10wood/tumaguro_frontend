@@ -17,7 +17,6 @@ export const ScheduleCalendar = () => {
                     `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/schedule/my`,
                     { headers: { Authorization: `Bearer ${token}` } }
                 );
-                console.log(response);
                 setEvent(response.data.schedules);
             } catch (err) {
                 console.log(err);
@@ -26,7 +25,6 @@ export const ScheduleCalendar = () => {
         getEvent();
     }, []);
     const handleScheduleClick = (schedule: any) => {
-        console.log(schedule);
         setSchedule({
             ...schedule.event.extendedProps,
             start: schedule.event.startStr,

@@ -17,12 +17,12 @@ export default function AddTodo() {
     return (
         <div>
             <CustomButton
-                onClick={() => {
+                onclick={() => {
                     setIsOpen(!isOpen);
                 }}
-                primaryColor="#C5956B"
-                secondaryColor="#C37349"
-                buttonName="Open"
+                primarycolor="#C5956B"
+                secondarycolor="#C37349"
+                buttonname="Open"
             />
             <Modal
                 open={isOpen}
