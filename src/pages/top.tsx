@@ -3,11 +3,7 @@ import React from "react";
 import SigninButton from "../components/Signinbutton";
 import SignupButton from "../components/Signupbutton";
 import { Button, Paper, Stack, TextField, Typography } from "@mui/material";
-import { Style } from "@mui/icons-material";
 import Image from "next/image";
-import { isTemplateSpan } from "typescript";
-import { useRouter } from "next/router";
-
 export default function Toppage() {
   return (
     <Paper
