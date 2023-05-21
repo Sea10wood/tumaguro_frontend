@@ -25,3 +25,11 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+.date-picker {
+  width: 50vw;
+  height: 50px;
+  max-width: 300px;
+  min-width: 200px;
+}
+
