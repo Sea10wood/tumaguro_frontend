@@ -7,23 +7,25 @@ import {
   Typography,
   Direction,
 } from "@mui/material";
+import { Center } from "@react-three/drei";
 import { useState } from "react";
 
 export default function SigninButton() {
   return (
-    <h2 style={{ 
+    <Typography style={{ 
       textAlign: "center",}}>
-    <Box component="div" p={2} >
+    <Box margin="0.1px" component="div" p={2} >
     <Button
       sx={{
         width: "20%",
-        alignItems: "center"
+        alignItems: "center",
+        margin: "0px",
       }}
       variant="text"
     >
       sign in
     </Button>
     </Box>
-          </h2>
+          </Typography>
   );
 }

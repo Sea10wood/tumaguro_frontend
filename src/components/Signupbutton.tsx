@@ -23,19 +23,21 @@ export default function SignupButton() {
 
 
 
-  <h2 style={{ textAlign: "center" }}>
-  <Box component="div" p={2}>
+  <Typography style={{ textAlign: "center" }}>
+  <Box component="div" p={2} padding="0" >
 
     <Button
      color="primary"
       sx={{
         width: "20%",
-        alignItems: "center"      }}
+        alignItems: "center",    
+        margin: "0px",
+      }}
       variant="text"
     >
       sign up
     </Button>
     </Box>
-          </h2>
+          </Typography>
   );
 }
