@@ -6,36 +6,38 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import axios from "axios";
-import { useEffect, useState } from "react";
 import { CustomDate } from "../common/CustomDate";
 
-export default function TodoView() {
-    const [tasks, setTasks] = useState<Task[]>([]);
-
-    useEffect(() => {
-        const getTasks = async () => {
-            try {
-                const token = localStorage.getItem("jwt");
-                const response = await axios.get(
-                    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/task/my`,
-                    { headers: { Authorization: `Bearer ${token}` } }
-                );
-                setTasks(response.data.tasks);
-            } catch (error) {
-                console.log(error);
-            }
-        };
-        getTasks();
-    }, []);
-
+export default function TodoView({ tasks }: { tasks: Task[] }) {
+    const finishTask = async (id: string) => {
+        const jwt = localStorage.getItem("jwt");
+        try {
+            const response = await axios.put(
+                `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/task/finish/${id}`,
+                { headers: { Authorization: `Bearer ${jwt}` } }
+            );
+        } catch (error) {
+            console.log(error);
+        }
+    };
     return (
         <List
-            sx={{ width: "100%", maxWidth: 600, bgcolor: "background.paper" }}
+            sx={{
+                width: "100%",
+                maxWidth: 600,
+                bgcolor: "background.paper",
+                maxHeight: "200px",
+                overflow: "auto",
+            }}
         >
-            {tasks.map(({ id, comment, dead_line, finished_at }) => {
+            {tasks.map(({ id, title, comment, dead_line, finished_at }) => {
                 return (
                     <ListItem key={id} disablePadding>
-                        <ListItemButton role={undefined} dense>
+                        <ListItemButton
+                            onClick={() => finishTask(id)}
+                            role={undefined}
+                            dense
+                        >
                             <ListItemIcon>
                                 <Checkbox
                                     edge="start"
@@ -44,7 +46,7 @@ export default function TodoView() {
                                     disableRipple
                                 />
                             </ListItemIcon>
-                            <ListItemText id={id} primary={comment} />
+                            <ListItemText id={id} primary={title} />
                         </ListItemButton>
                         <CustomDate dateString={dead_line} />
                     </ListItem>

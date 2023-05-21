@@ -1,17 +1,20 @@
-import { useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-const DatePick = () => {
-    const [selectedDate, setSelectedDate] = useState<Date>();
-
+const DatePick = ({
+    setDate,
+    selectedDate,
+}: {
+    setDate: Dispatch<SetStateAction<Date | null>>;
+    selectedDate: Date | null;
+}) => {
     return (
         <DatePicker
             placeholderText="yyyy/MM/dd HH:mm"
             dateFormat="yyyy/MM/dd HH:mm"
-            locale="ja"
             selected={selectedDate}
-            onChange={(date) => setSelectedDate(date!)}
+            onChange={(date) => setDate(date)}
             showTimeSelect
             className="date-picker"
             timeIntervals={30}
