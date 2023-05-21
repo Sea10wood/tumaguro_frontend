@@ -11,7 +11,7 @@ import { useState } from "react";
 
 export default function SigninButton() {
   return (
-    <h2 style={{ 
+    <Typography style={{ 
       textAlign: "center",}}>
     <Box component="div" p={2} >
     <Button
@@ -24,6 +24,6 @@ export default function SigninButton() {
       sign in
     </Button>
     </Box>
-          </h2>
+          </Typography>
   );
 }
