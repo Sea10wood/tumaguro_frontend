@@ -22,7 +22,7 @@ const CloneCat = ({
     const ref = useRef<Group>() as RefObject<Group>;
     const { actions } = useAnimations(animations, ref);
     useFrame(() => {
-        actions[animationName ?? 0]?.play();
+        actions[animationName ?? 1]?.play();
     });
 
     return (
@@ -43,12 +43,12 @@ const Cat = ({ cats }: { cats: Task[] }) => {
             {cats.map(({ comment }, index) => {
                 const position = [
                     Math.random() * 30 - 15,
-                    0,
+                    -1,
                     Math.random() * 30 - 15,
                 ];
                 const rotation = [0, Math.random() * Math.PI, 0];
                 const animationName =
-                    randomAnimation[Math.floor(Math.random() * 2)];
+                    randomAnimation[Math.floor(Math.random() * 2 * 1.3)];
                 return (
                     <CloneCat
                         key={index}
