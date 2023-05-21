@@ -1,6 +1,7 @@
 import { AddSchedule } from "@/components/schedule/AddSchedule";
 import { InvitedSchedule } from "@/components/schedule/InvitedSchedule";
 import { InvitingSchedule } from "@/components/schedule/InvitingSchedule";
+
 import { ScheduleCalendar } from "@/components/schedule/ScheduleCalender";
 import AddTodo from "@/components/Todo/AddTodo";
 import Cat from "@/components/Todo/Cat";
@@ -8,7 +9,9 @@ import Field from "@/components/Todo/Field";
 import LowpolyWood from "@/components/Todo/Lowpolywood";
 import TodoView from "@/components/Todo/TodoView";
 import Wood from "@/components/Todo/Wood";
+
 import { GetInvitationResultOne, Schedule, Task } from "@/types/schema";
+
 import { Box, Stack } from "@mui/material";
 import { OrbitControls } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
@@ -75,7 +78,7 @@ export default function Todo() {
     }, []);
     return (
         <Stack direction="row">
-            <Box component="div" sx={{ height: "100vh", width: "50%" }}>
+            <Box component="div" sx={{ height: "100vh", width: "60%" }}>
                 <Canvas
                     onCreated={({ camera }) => {
                         camera.position.set(20, 10, 10);
