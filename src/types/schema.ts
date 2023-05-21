@@ -23,6 +23,8 @@ export type GetInvitationResultOne = {
   created_at: string
   id: string
   sender_email: string
+  is_recept?: boolean | undefined
+  recipient_email: string
   schedule: Schedule
 }
 
