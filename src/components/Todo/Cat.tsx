@@ -43,7 +43,7 @@ const Cat = ({ cats }: { cats: Task[] }) => {
             {cats.map(({ comment }, index) => {
                 const position = [
                     Math.random() * 30 - 15,
-                    -1,
+                    -3,
                     Math.random() * 30 - 15,
                 ];
                 const rotation = [0, Math.random() * Math.PI, 0];
