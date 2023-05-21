@@ -16,7 +16,6 @@ export default function TodoView() {
         const getTasks = async () => {
             try {
                 const token = localStorage.getItem("jwt");
-                console.log(token);
                 const response = await axios.get(
                     `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/task/my`,
                     { headers: { Authorization: `Bearer ${token}` } }

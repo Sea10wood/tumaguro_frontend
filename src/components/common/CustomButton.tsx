@@ -5,14 +5,21 @@ import {
     CircularProgress,
     Typography,
 } from "@mui/material";
-
+import { MouseEventHandler } from "react";
+const randomSeBox = ["/cat.mp3", "/cat2.mp3"];
 export const CustomButton = (
     props: {
-        buttonName: string;
-        primaryColor: string;
-        secondaryColor: string;
+        buttonname: string;
+        primarycolor: string;
+        secondarycolor: string;
+        onclick?: MouseEventHandler<HTMLButtonElement>;
     } & ButtonProps
 ) => {
+    const meow = () => {
+        const index = Math.floor(Math.random() * 2);
+        const audio = new Audio(randomSeBox[index]);
+        audio.play().catch((error) => console.warn(error));
+    };
     return (
         <Box component="div" position="relative" padding={1}>
             <Button
@@ -22,10 +29,16 @@ export const CustomButton = (
                     textTransform: "none",
                     paddingLeft: 0.8,
                     zIndex: 100,
-                    backgroundColor: props.primaryColor,
+                    backgroundColor: props.primarycolor,
                     ":hover": {
-                        backgroundColor: props.primaryColor,
+                        backgroundColor: props.primarycolor,
                     },
+                }}
+                onClick={(event) => {
+                    meow();
+                    if (props.onclick != undefined) {
+                        props.onclick(event);
+                    }
                 }}
                 {...props}
                 variant="contained"
@@ -34,7 +47,7 @@ export const CustomButton = (
                     position="absolute"
                     component="div"
                     sx={{
-                        backgroundColor: props.secondaryColor,
+                        backgroundColor: props.secondarycolor,
                         width: "5px",
                         height: "15px",
                         left: 40,
@@ -48,7 +61,7 @@ export const CustomButton = (
                     position="absolute"
                     component="div"
                     sx={{
-                        backgroundColor: props.secondaryColor,
+                        backgroundColor: props.secondarycolor,
                         width: "5px",
                         height: "15px",
                         left: 50,
@@ -62,7 +75,7 @@ export const CustomButton = (
                     position="absolute"
                     component="div"
                     sx={{
-                        backgroundColor: props.secondaryColor,
+                        backgroundColor: props.secondarycolor,
                         width: "5px",
                         height: "15px",
                         left: 60,
@@ -76,7 +89,7 @@ export const CustomButton = (
                     position="absolute"
                     component="div"
                     sx={{
-                        backgroundColor: props.secondaryColor,
+                        backgroundColor: props.secondarycolor,
                         width: "5px",
                         height: "15px",
                         left: 70,
@@ -97,7 +110,7 @@ export const CustomButton = (
                 >
                     ・ω・
                 </Typography>
-                {props.buttonName}
+                {props.buttonname}
                 <CircularProgress
                     value={60}
                     thickness={15}
@@ -110,9 +123,9 @@ export const CustomButton = (
                         rotate: "200deg",
                         zIndex: 95,
                         borderRadius: "999px",
-                        color: props.primaryColor,
+                        color: props.primarycolor,
                         ":hover": {
-                            color: props.primaryColor,
+                            color: props.primarycolor,
                         },
                     }}
                 />
@@ -126,9 +139,9 @@ export const CustomButton = (
                         right: -15,
                         rotate: "20deg",
                         zIndex: 95,
-                        color: props.primaryColor,
+                        color: props.primarycolor,
                         ":hover": {
-                            color: props.primaryColor,
+                            color: props.primarycolor,
                         },
                     }}
                 />
@@ -138,7 +151,7 @@ export const CustomButton = (
                 position="absolute"
                 component="div"
                 sx={{
-                    borderBottom: `20px solid ${props.primaryColor}`,
+                    borderBottom: `20px solid ${props.primarycolor}`,
                     borderLeft: "12px solid transparent",
                     borderRight: "12px solid transparent",
                     width: 0,
@@ -152,7 +165,7 @@ export const CustomButton = (
                 position="absolute"
                 component="div"
                 sx={{
-                    borderBottom: `20px solid ${props.primaryColor}`,
+                    borderBottom: `20px solid ${props.primarycolor}`,
                     borderLeft: "12px solid transparent",
                     borderRight: "12px solid transparent",
                     width: 0,

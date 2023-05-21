@@ -18,7 +18,6 @@ export default function Todo() {
                     `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/task/my`,
                     { headers: { Authorization: `Bearer ${token}` } }
                 );
-                console.log(response);
                 setTasks(response.data.tasks);
             } catch (err) {
                 console.log(err);
