@@ -1,7 +1,10 @@
+import { ScheduleCalendar } from "@/components/schedule/ScheduleCalender";
 import AddTodo from "@/components/Todo/AddTodo";
 import Cat from "@/components/Todo/Cat";
+import Field from "@/components/Todo/Field";
+import LowpolyWood from "@/components/Todo/Lowpolywood";
 import TodoView from "@/components/Todo/TodoView";
-import { ScheduleCalendar } from "@/components/schedule/ScheduleCalender";
+import Wood from "@/components/Todo/Wood";
 import { Task } from "@/types/schema";
 import { Box, Stack } from "@mui/material";
 import { OrbitControls } from "@react-three/drei";
@@ -28,10 +31,17 @@ export default function Todo() {
     return (
         <Stack direction="row">
             <Box component="div" sx={{ height: "100vh", width: "60%" }}>
-                <Canvas>
+                <Canvas
+                    onCreated={({ camera }) => {
+                        camera.position.set(20, 10, 10);
+                    }}
+                >
                     <OrbitControls />
                     <Cat cats={tasks} />
                     <directionalLight />
+                    <LowpolyWood />
+                    <Wood />
+                    <Field />
                 </Canvas>
             </Box>
             <Box
