@@ -1,3 +1,4 @@
+
 import { Layout } from "@/components/common/layout";
 import { createTheme } from "@/libs/Themes";
 import "@/styles/globals.css";
@@ -13,4 +14,5 @@ export default function App({ Component, pageProps }: AppProps) {
             </Layout>
         </ThemeProvider>
     );
+
 }
