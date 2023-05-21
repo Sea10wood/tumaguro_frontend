@@ -11,13 +11,11 @@ import { CustomDate } from "../common/CustomDate";
 export default function TodoView({ tasks }: { tasks: Task[] }) {
     const finishTask = async (id: string) => {
         const jwt = localStorage.getItem("jwt");
-        console.log(id);
         try {
             const response = await axios.put(
                 `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/task/finish/${id}`,
                 { headers: { Authorization: `Bearer ${jwt}` } }
             );
-            console.log(response);
         } catch (error) {
             console.log(error);
         }

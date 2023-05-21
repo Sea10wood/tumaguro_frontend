@@ -1,4 +1,12 @@
-import { Box, Modal, Paper, Stack, TextField, Typography } from "@mui/material";
+import {
+    Box,
+    Button,
+    Modal,
+    Paper,
+    Stack,
+    TextField,
+    Typography,
+} from "@mui/material";
 import axios from "axios";
 import Image from "next/image";
 import { useState } from "react";
@@ -26,7 +34,6 @@ export const AddSchedule = ({ refetch }: { refetch: () => Promise<void> }) => {
                 },
                 { headers: { Authorization: `Bearer ${jwt}` } }
             );
-            console.log(response);
             refetch();
             setIsOpen(false);
         } catch (error) {
@@ -69,18 +76,22 @@ export const AddSchedule = ({ refetch }: { refetch: () => Promise<void> }) => {
                         spacing={3}
                         p={2}
                     >
-                        <Image
-                            src="/images/catclose.png"
-                            alt="cat close.png"
-                            width={100}
-                            height={100}
-                            style={{
+                        <Button
+                            sx={{
                                 textAlign: "right",
                                 position: "absolute",
                                 right: 0,
                                 top: 0,
                             }}
-                        />
+                            onClick={() => setIsOpen(false)}
+                        >
+                            <Image
+                                src="/images/catclose.png"
+                                alt="cat close.png"
+                                width={100}
+                                height={100}
+                            />
+                        </Button>
 
                         <Typography variant="h6">Scheduleを追加</Typography>
 

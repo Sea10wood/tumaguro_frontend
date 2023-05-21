@@ -1,8 +1,16 @@
 import { Schedule } from "@/types/schema";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import FullCalendar from "@fullcalendar/react";
-import { Modal, Paper, Stack, TextField, Typography } from "@mui/material";
+import {
+    Button,
+    Modal,
+    Paper,
+    Stack,
+    TextField,
+    Typography,
+} from "@mui/material";
 import axios from "axios";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { CustomButton } from "../common/CustomButton";
 import { CustomDate } from "../common/CustomDate";
@@ -30,8 +38,6 @@ export const ScheduleCalendar = ({ event }: { event: Schedule[] }) => {
     };
     const inviteUser = async () => {
         const jwt = localStorage.getItem("jwt");
-        console.log(inviteUserEmail);
-        console.log(scheduleDetail!.id);
         try {
             const response = await axios.post(
                 `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/invitation/add`,
@@ -41,7 +47,6 @@ export const ScheduleCalendar = ({ event }: { event: Schedule[] }) => {
                 },
                 { headers: { Authorization: `Bearer ${jwt}` } }
             );
-            console.log(response);
         } catch (error) {
             console.log(error);
         }
@@ -103,7 +108,23 @@ export const ScheduleCalendar = ({ event }: { event: Schedule[] }) => {
                         padding: 5,
                     }}
                 >
-                    <Stack direction="row" spacing={4}>
+                    <Stack direction="row" spacing={4} position="relative">
+                        <Button
+                            sx={{
+                                textAlign: "right",
+                                position: "absolute",
+                                right: -50,
+                                top: -50,
+                            }}
+                            onClick={() => setScheduleDetail(null)}
+                        >
+                            <Image
+                                src="/images/catclose.png"
+                                alt="cat close.png"
+                                width={50}
+                                height={50}
+                            />
+                        </Button>
                         <Stack spacing={3}>
                             <Typography>{scheduleDetail?.title}</Typography>
                             <Stack direction="row">
@@ -137,6 +158,7 @@ export const ScheduleCalendar = ({ event }: { event: Schedule[] }) => {
                                     textAlign: "center",
                                     m: "auto",
                                 }}
+                                label="MAIL ADDRESS"
                                 onChange={(event) =>
                                     setInviteUserEmail(event.target.value)
                                 }
