@@ -62,7 +62,7 @@ export default function Todo() {
                     <AddTodo refetch={getTask} />
                     <AddSchedule refetch={getEvent} />
                 </Stack>
-                <TodoView />
+                <TodoView tasks={tasks} />
             </Box>
         </Stack>
     );
