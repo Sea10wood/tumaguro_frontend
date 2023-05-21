@@ -9,19 +9,21 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 import { useState } from "react";
+import { CustomButton } from "../common/CustomButton";
 import DatePick from "../common/DatePick";
 
 export default function AddTodo() {
     const [isOpen, setIsOpen] = useState(false);
     return (
         <div>
-            <Button
+            <CustomButton
                 onClick={() => {
                     setIsOpen(!isOpen);
                 }}
-            >
-                Open
-            </Button>
+                primaryColor="#C5956B"
+                secondaryColor="#C37349"
+                buttonName="Open"
+            />
             <Modal
                 open={isOpen}
                 onClose={() => setIsOpen(false)}

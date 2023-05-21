@@ -1,7 +1,7 @@
 import { Schedule } from "@/types/schema";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import FullCalendar from "@fullcalendar/react";
-import { Button, Paper, Typography } from "@mui/material";
+import { Paper, Typography } from "@mui/material";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { CustomDate } from "../common/CustomDate";
@@ -50,11 +50,6 @@ export const ScheduleCalendar = () => {
                         padding: 2,
                     }}
                 >
-                    <Button
-                        onClick={() => {
-                            console.log(schedule);
-                        }}
-                    ></Button>
                     <Typography>{schedule?.title}</Typography>
                     <Typography>
                         開始:
