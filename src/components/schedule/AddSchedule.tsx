@@ -5,18 +5,23 @@ import { useState } from "react";
 import { CustomButton } from "../common/CustomButton";
 import DatePick from "../common/DatePick";
 
-export default function AddTodo({ refetch }: { refetch: () => Promise<void> }) {
+export const AddSchedule = ({ refetch }: { refetch: () => Promise<void> }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [scheduleName, setScheduleName] = useState("");
-    const [deadLine, setDeadLine] = useState<Date | null>(new Date());
-    const sendAddTask = async () => {
+    const [startTime, setStartTime] = useState<Date | null>(new Date());
+    const [endTime, setEndTime] = useState<Date | null>(new Date());
+    const sendAddSchedule = async () => {
+        if (scheduleName === "") {
+            return;
+        }
         const jwt = localStorage.getItem("jwt");
         try {
             const response = await axios.post(
-                `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/task/add`,
+                `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/schedule/add`,
                 {
                     title: scheduleName,
-                    dead_line: deadLine,
+                    start: startTime,
+                    end: endTime,
                     comment: "",
                 },
                 { headers: { Authorization: `Bearer ${jwt}` } }
@@ -29,14 +34,12 @@ export default function AddTodo({ refetch }: { refetch: () => Promise<void> }) {
         }
     };
     return (
-        <div>
+        <>
             <CustomButton
-                onclick={() => {
-                    setIsOpen(!isOpen);
-                }}
+                onclick={() => setIsOpen(!isOpen)}
                 primarycolor="#C5956B"
                 secondarycolor="#C37349"
-                buttonname="TODO"
+                buttonname="SCHEDULE"
             />
             <Modal
                 open={isOpen}
@@ -79,12 +82,13 @@ export default function AddTodo({ refetch }: { refetch: () => Promise<void> }) {
                             }}
                         />
 
-                        <h4>Todoを追加</h4>
+                        <Typography variant="h6">Scheduleを追加</Typography>
 
                         <TextField
                             id="outlined-multiline-flexible"
-                            label="Todo"
+                            label="Schedule"
                             multiline
+                            name="title"
                             maxRows={1}
                             sx={{
                                 width: "100%",
@@ -93,19 +97,24 @@ export default function AddTodo({ refetch }: { refetch: () => Promise<void> }) {
                                 textAlign: "center",
                                 m: "auto",
                             }}
-                            onChange={(event) =>
-                                setScheduleName(event.target.value)
-                            }
+                            onChange={(e) => setScheduleName(e.target.value)}
                         />
+                        <Box component="div">
+                            <Typography variant="h6">開始日時を追加</Typography>
+                            <DatePick
+                                setDate={setStartTime}
+                                selectedDate={startTime}
+                            />
+                        </Box>
                         <Box component="div">
                             <Typography variant="h6">終了日時を追加</Typography>
                             <DatePick
-                                selectedDate={deadLine}
-                                setDate={setDeadLine}
+                                setDate={setEndTime}
+                                selectedDate={endTime}
                             />
                         </Box>
                         <CustomButton
-                            onclick={() => sendAddTask()}
+                            onclick={() => sendAddSchedule()}
                             primarycolor="#C5956B"
                             secondarycolor="#C37349"
                             buttonname="send"
@@ -113,6 +122,6 @@ export default function AddTodo({ refetch }: { refetch: () => Promise<void> }) {
                     </Stack>
                 </Paper>
             </Modal>
-        </div>
+        </>
     );
-}
+};

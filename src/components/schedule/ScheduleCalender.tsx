@@ -2,28 +2,12 @@ import { Schedule } from "@/types/schema";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import FullCalendar from "@fullcalendar/react";
 import { Paper, Typography } from "@mui/material";
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { CustomDate } from "../common/CustomDate";
 
-export const ScheduleCalendar = () => {
-    const [event, setEvent] = useState();
+export const ScheduleCalendar = ({ event }: { event: Schedule[] }) => {
     const [schedule, setSchedule] = useState<null | Schedule>(null);
-    useEffect(() => {
-        const getEvent = async () => {
-            try {
-                const token = localStorage.getItem("jwt");
-                const response = await axios.get(
-                    `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/v1/schedule/my`,
-                    { headers: { Authorization: `Bearer ${token}` } }
-                );
-                setEvent(response.data.schedules);
-            } catch (err) {
-                console.log(err);
-            }
-        };
-        getEvent();
-    }, []);
+
     const handleScheduleClick = (schedule: any) => {
         setSchedule({
             ...schedule.event.extendedProps,
