@@ -7,7 +7,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { CustomDate } from "./common/CustomDate";
+import { CustomDate } from "../common/CustomDate";
 
 export default function TodoView() {
     const [tasks, setTasks] = useState<Task[]>([]);
